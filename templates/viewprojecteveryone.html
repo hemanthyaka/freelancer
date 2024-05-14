@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Project Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('/static/bac-10.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+           width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff85;
+            border-radius: 5px;
+            border: 2px solid yellow;
+        }
+        .card {
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #ffffff68;
+            border: 2px solid #3737cf;
+        }
+        .card p {
+            margin: 8px 0;
+        }
+        h1 {
+            color: #000000;
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        .no-projects {
+            text-align: center;
+            color: #777;
+        }
+        form {
+            margin-top: 20px;
+        }
+      
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #adff2f;
+        }
+        button {
+            background-color: #4189e8f7;
+            color: #fff;
+            cursor: pointer;
+            padding: 10px;
+            width: 80%;
+            border-radius: 10px;
+            border: none;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        a {
+            text-decoration: none;
+            color: #000000;
+            border: 1px solid blue;
+            padding: 9px;
+            background-color: yellow;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+        {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <a href="{{url_for('index')}}">BACK</a>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+        {% if p %}
+            <h1><b>Project Details</b></h1>
+            {% for project in p %}
+                <div class="card">
+                    <p><strong>Project Name:</strong> {{ project[2] }}</p>
+                    <p><strong>Description:</strong> {{ project[3] }}</p>
+                    <p><strong>Bid Amount:</strong> {{ project[4] }}</p>
+                    <p><strong>Skills:</strong> {{ project[5] }}</p>
+                    <p><strong>Requirements:</strong> {{ project[6] }}</p>
+                    <p><strong>Job Location:</strong> {{ project[7] }}</p>
+                    <p><strong>Start Date:</strong> {{ project[8] }}</p>
+                    <p><strong>End Date:</strong> {{ project[9] }}</p>
+                </div>
+                <form method="POST" action="{{url_for('contactus',id1=project[0])}}">
+                    <input type="text" placeholder="Enter your name" name="name">
+                    <input type="message" placeholder="Enter the message" name="message">
+                    <input type="email" placeholder="Enter your email" name="email">
+                    <input type="number" placeholder="Enter your contact number" name="phnumber">
+                    <center><button type="submit">Submit</button></center>
+                </form><br><hr>
+            {% endfor %}
+        {% else %}
+            <p class="no-projects">No projects are added</p>
+        {% endif %}
+    </div>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

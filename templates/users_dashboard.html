@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancer Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+nav {
+    background-color:#ee8c0d;
+}
+nav .navbar-nav .nav-link {
+    font-size: 20px;
+}
+nav a:not(.heading,.dropdown-item,.not_a)::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background-color: #000000;
+    transition: all 0.5s linear;
+}
+nav a:hover::after{
+    width: 100%;
+}
+nav .dropdown-menu {
+    background-color: #000000;
+    border: 2px solid #f76f00;
+}
+nav .dropdown-menu .dropdown-item:hover {
+    background-color: #ba6300;
+}
+.img_1 {
+  position: relative;
+  width: 100%;
+  top: 5px;
+  border-radius: 10px;
+}
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    
+    {% for message in messages %}
+      <center><h4 class="position-relative top-50">{{ message }}</h4></center>
+    {% endfor %}
+    
+  {% endif %}
+{% endwith %}
+<body>
+    <nav class="navbar navbar-expand-md">
+        <div class="container-fluid">
+          <a class="navbar-brand fst-italic fw-bold fs-3 heading" href="{{url_for('index')}}">TALENT-HUB</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              
+                <li class="nav-item">
+                    <a class="nav-link active text-dark not_a " aria-current="page" href=""><b>{{session.get('user')}} </b></a>
+                  </li>
+                  <!-- <li class="nav-item">
+                    <a class="nav-link active text-dark not_a " aria-current="page" href="{{url_for('viewprojecteveryone')}}">VIEW-PROJECTS</a>
+                  </li> -->
+                  <li class="nav-item dropdown me-2">
+                    <a class="nav-link text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ADD</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item text-white" href="{{url_for('freelancer_management')}}">Create Personal Account</a></li>
+                      <li><a class="dropdown-item text-white" href="{{url_for('updatefreelancer_management')}}">Update Personal Account</a></li>
+                      <li><a class="dropdown-item text-white" href="{{url_for('addproject')}}">Add Project</a></li>
+                      <li><a class="dropdown-item text-white" href="{{url_for('updateproject')}}">Update Project</a></li>
+                      <li><a class="dropdown-item text-white" href="{{url_for('addskills')}}">Add Skills</a></li>
+                      <li><a class="dropdown-item text-white" href="{{url_for('updateskills')}}">Update Skills</a></li>
+                      <li><a class="dropdown-item text-white" href="{{url_for('addcertification')}}">Add Certificates</a></li>
+                      <li><a class="dropdown-item text-white" href="{{url_for('updatecertification')}}">Update Certificates</a></li>
+                      <li><a class="dropdown-item text-white" href="{{url_for('view_personaldetails')}}">View Account</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active text-white me-5" aria-current="page" href="{{url_for('ulogout')}}">LOGOUT</a>
+                  </li> 
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <img src="/static/bac-6.jpg" alt="" class="img_1">
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
+

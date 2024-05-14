@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TalentHub</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://kit.fontawesome.com/ed181378d9.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body class="bg-black">
+    <nav class="navbar navbar-expand-md w-100 position-fixed z-3 top-0">
+        <div class="container-fluid">
+          <a class="navbar-brand fs-3 fst-italic fw-bold heading" href="{{url_for('index')}}">TALENT-HUB</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active text-white " aria-current="page" href="#index">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active text-white " aria-current="page" href="#about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active text-white" aria-current="page" href="#contact">Contact</a>
+              </li> 
+              <li class="nav-item dropdown me-2">
+                <a class="nav-link text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Business</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item text-white" href="{{url_for('bregistration')}}">Register</a></li>
+                  <li><a class="dropdown-item text-white" href="{{url_for('blogin')}}">Login</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown me-5">
+                <a class="nav-link text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Freelancer</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item text-white" href="{{url_for('uregistration')}}">Register</a></li>
+                  <li><a class="dropdown-item text-white" href="{{url_for('ulogin')}}">Login</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+<section id="home">
+   <div class="container-fluid">
+    <div class="row">
+        <div class="col-12" id="landingPage">   
+        <img src="/static/bac-1.jpg" alt="" class="landingTemplate">
+        <h1 class="h1-1">FREELANCE <br> WORkS</h1>
+        <!-- <h1 class=" h1-4">IF YOU <br> HAVE <br> SKILLS <br> YOU CAN <br> DO IT !</h1> -->
+        </div>
+    </div>
+   </div>
+   <div class="container">
+    <div class="row">
+      <div class="col-12 d-flex justify-content-between text-center proposals">
+        <h1 class="h1-2 h1-3"><a href="{{url_for('viewprojecteveryone')}}" class="text-decoration-none text-white">VIEW BUSINESS PROPOSALS</a></h1>
+        <h1 class="h1-2 h1-3"><a href="{{url_for('viewallfreelancers')}}" class="text-decoration-none text-white">VIEW FREELANCER PROFILES</a></h1>
+      </div>
+    </div>
+   </div>
+</section>
+<section id="about">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+         <img src="/static/bac-4.jpg" alt="" class="img_1">
+         <h1 class="position-absolute text-white h1-6">ABOUT</h1>
+         <div class="position-absolute text-white inner_div_1">
+        <p><b>Welcome to TALENT-HUB, where talent meets opportunity.</b></p>
+        <P>At TALENT-HUB, we believe in empowering freelancers and businesses by providing a dynamic marketplace that bridges the gap between skilled professionals and innovative companies. Our platform is designed to facilitate seamless collaboration, ensuring that every project leads to success.</P>
+        <p><b>For Freelancers:</b></p>
+      <ul>
+        <li><b>Discover Diverse Opportunities :</b> With a wide range of projects across various industries, find work that aligns with your skills and passions.</li>
+        <li><b>Flexibility and Freedom :</b>
+        </b> Enjoy the liberty to choose projects that fit your schedule and work from anywhere in the world.</li>
+        <li><b>Secure Transactions :</b>
+        </b> Our secure payment system ensures that your hard work is rewarded, on time, every time.</li>
+      </ul>  
+      <p><b>For Clients:</b></p>
+      <ul>
+        <li><b>Access Top Talent :</b> Connect with a global pool of vetted freelancers who bring expertise and fresh perspectives to your projects.</li>
+      </ul>
+   <p><b>Our Mission :</b> To create a world where every professional has the opportunity to grow and every business has access to the talent they need to thrive.</p>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="contact">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 text-white position-relative w-100">
+        <!-- <img src="/static/bac-5.jpg" alt="" class="img_2" height="100%"> -->
+        <!-- <h1 class=" text-white h1-7" >CONTACTS </h1> -->
+       <div class="info ">
+          <span class="infoicons"><a href="tel:+918341434767" class="call"><i class="fa-solid fa-phone"></i></a></span>
+          <span class="infoicons"><a href="mailto:yakahemanth3@gmail.com" class="mail"><i class="fa-solid fa-envelope"></i></a></span>
+          <span class="infoicons"><a href="https://x.com/Yaka_hemanth?t=VTwlqTFZniMFXwLWtfdSpg&s=09" target="_blank" class="twitter"><i class="fa-brands fa-x-twitter"></i></a></span>
+          <span class="infoicons"><a href="https://www.facebook.com/chinni.cr.7?mibextid=ZbWKwL" class="facebook" target="_blank"><i class="fa-brands fa-facebook"></i></a></span>
+          <span class="infoicons"><a href="https://www.instagram.com/_hemanth_yaka_?igsh=MWV0ZXZvczljN2tpeQ==" target="_blank" class="insta"><i class="fa-brands fa-instagram"></i></a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Project Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('/static/bac-8.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff9a;
+            border-radius: 5px;
+        }
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #ffffff82;
+            box-shadow: 0 2px 5px #0000001a;
+        }
+        .card p {
+            margin: 8px 0;
+        }
+        h1 {
+            color: #000000;
+            margin-bottom: 20px;
+        }
+        .no-projects {
+            text-align: center;
+            color: #777;
+        }
+    </style>
+</head>
+<body >
+    <a href="{{url_for('company_dashboard')}}"><button class="p-2" style="margin-bottom: 10px;width: 80px;background-color: brown;color: #ffffff;">BACK</button></a>
+    <div class="container">
+        {% if p %}
+            <center><h1><b>PROJECT DETAILS</b></h1></center>
+            {% for project in p %}
+                <div class="card">
+                    <p><strong>Project ID:</strong> {{ project[0] }}</p>
+                    <p><strong>Project Name:</strong> {{ project[2] }}</p>
+                    <p><strong>Description:</strong> {{ project[3] }}</p>
+                    <p><strong>Bid Amount:</strong> {{ project[4] }}</p>
+                    <p><strong>Skills:</strong> {{ project[5] }}</p>
+                    <p><strong>Requirements:</strong> {{ project[6] }}</p>
+                    <p><strong>Job Location:</strong> {{ project[7] }}</p>
+                    <p><strong>Start Date:</strong> {{ project[8] }}</p>
+                    <p><strong>End Date:</strong> {{ project[9] }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="no-projects">No projects are added</p>
+        {% endif %}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

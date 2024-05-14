@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Register Form</title>
+    <!-- <link rel="stylesheet" href="register.css"> -->
+    <script src="https://kit.fontawesome.com/ed181378d9.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+        * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        outline: none;
+        }
+
+        body {
+        min-height: 100vh;
+        background-image: url("/static/bac-2.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #000000;
+        }
+        .container {
+            background-color: #6d6d6d81;
+            backdrop-filter: blur(5px);
+            border: 2px solid #ffffff;
+            width: 450px;
+            max-width: 100%;
+            border-radius: 5px;
+            overflow: hidden;
+            top: 50px;
+        }
+    .header {
+        padding: 20px 40px;
+        text-align: center;
+        backdrop-filter: blur(2px);
+        border-bottom: 1px solid #000000;
+        color: #ffffff;
+    }
+    .header h2 {
+        margin: 0;
+    }
+    .form {
+        padding: 30px 40px;
+    }
+    .field {
+        margin-bottom: 5px;
+        padding-bottom: 10px;
+        position: relative;
+    }
+    .field label {
+        display: inline-block;
+        margin-bottom: 5px;
+        color: #ffffff;
+    }
+    .field input{
+        display: block;
+        border-radius: 4px;
+        border: 2px solid #120cb9;
+        font-size: 14px;
+        width: 100%;
+        padding: 10px;
+    }
+    .form .button {
+        background-color: #0d3bd2;
+        border-radius: 5px;
+        border: none;
+        width: 100%;
+        color: #ffffff;
+        padding: 10px;
+        font-size: 16px;
+        display: block;
+    }
+
+    </style>
+
+
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    
+    {% for message in messages %}
+     <h3 style="position: absolute;top: 10px; color: #e00315;" >{{ message }}</h3>
+    {% endfor %}
+    
+  {% endif %}
+{% endwith %}
+<body class="position-relative">
+    <div class="container position-absolute">
+        <div class="row">
+            <div class="col-12">
+        <div class="header"><h2>BUSINESS REGISTER</h2></div>
+        <form action="#" class="form" id="form" method="post">
+            <div class="field">
+                <label for="gst_number">GST Number </label>
+                <input type="text" placeholder="enter your gst number" id="gst_number" name="gst_number" required>
+            </div>
+            <div class="field">
+            <label for="company_name">Company Name</label>
+            <input type="text" placeholder="enter your Company Name" id="company_name" name="company_name" required>
+        </div>
+        <div class="field" >
+            <label for="email">Email</label>
+            <input type="email" placeholder="enter your email" id="email" name="email" required>
+        </div>
+        <div class="field" >
+            <label for="phone_number">Phone Number </label>
+            <input type="tel" placeholder="enter your Phone Number" id="phone_number" name="phone_number" required>
+        </div>
+        <div class="field" >
+            <label for="location">Location</label>
+            <input type="text" placeholder="enter your location" id="location" name="location" required>
+        </div>
+        <div class="field" >
+            <label for="industry">Industry</label>
+            <input type="text"  id="industry" name="industry" required>
+        </div>
+        <div class="field" >
+            <label for="linkedin_profile">Linkedin Profile</label>
+            <input type="text" placeholder="enter your Linkedin Profile" id="linkedin_profile" name="linkedin_profile" required>
+        </div>
+        <div class="field" >
+            <label for="password">Password</label>
+            <input type="password" placeholder="enter your password" id="password" name="password" required>
+        </div>
+        <div class="field" >
+            <label for="cpassword">Password</label>
+            <input type="password" placeholder="enter your password" id="cpassword" name="cpassword" required>
+        </div>
+        <button type="submit" class="button">SIGNUP</button>
+        </form>
+    </div>
+</div>
+</div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- <script>
+        const form = document.getElementById("form")
+const gstNumber = document.getElementById("gstNumber")
+const userName = document.getElementById("userName")
+const eMail = document.getElementById("eMail")
+const password = document.getElementById("password")
+const confirmPassword = document.getElementById("confirmPassword")
+const checkBox = document.getElementById("check")
+
+let isValidNumber = false
+let isValidName = false
+let isValidEmail = false 
+let isValidPassword = false
+let isValidCpassword = false
+let isValidCheck = false
+
+gstNumber.addEventListener('keydown',gstNumberCheck)
+userName.addEventListener('keydown',checkUserName)
+eMail.addEventListener('keydown',checkEmail)
+password.addEventListener('keydown',checkPassword)
+confirmPassword.addEventListener('keydown',checkCpassword)
+checkBox.addEventListener('keydown',checkCheck)
+
+form.addEventListener('submit',(e)=>{
+    e.preventDefault()
+    validate()
+})
+
+function validate(){
+    
+    isValidNumber = false
+    isValidName = false
+    isValidEmail = false 
+    isValidPassword = false
+    isValidCpassword = false
+    isValidCheck = false
+
+gstNumberCheck()
+checkUserName()
+checkEmail()
+checkPassword()
+checkCpassword()
+checkCheck()
+
+
+if(isValidNumber && isValidName && isValidEmail && isValidPassword && isValidCpassword && isValidCheck){
+    form.submit()                     
+}
+
+}
+
+
+function setError(input,message){
+    let parent = input.parentElement;
+    let small = parent.querySelector('small');
+    small.innerText = message;
+    parent.classList.add('error')
+    parent.classList.remove('success')
+}
+
+function setSuccess(input){
+    let parent = input.parentElement;
+    parent.classList.add('success');
+    parent.classList.remove('error')
+}
+
+function emailCheck(input){
+ const emailReg = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    let valid = emailReg.test(input)
+    return valid
+}
+
+function gstNumberCheck(){
+    let gstNumberValue = gstNumber.value.trim()
+
+    if(gstNumberValue == ''){
+        setError(gstNumber,'GST number cannot be empty')
+    }
+    else if(gstNumberValue.length<30){
+        setError(gstNumber,'GST number must comtain 25 characters')
+    }
+    else {
+        setSuccess(gstNumber)
+        isValidNumber = true
+    }
+}
+
+function checkUserName(){
+    let nameValue = userName.value.trim()
+    if(nameValue===''){
+        setError(userName,'username cannot be empty')
+      }
+      else if(nameValue.length<=3){
+          setError(userName,'username must contain 4 characters')
+      }
+      else{
+          setSuccess(userName)
+          isValidName = true
+      }
+}
+
+function checkEmail(){
+    let emailValue = eMail.value.trim()
+    if(emailValue===''){
+        setError(eMail,'email cannot be empty')
+    }
+    else if(!emailCheck(emailValue)){
+      setError(eMail,'Enter valid email id')
+    }
+    else{
+        setSuccess(eMail)
+        isValidEmail = true
+    }
+    
+}
+
+function checkPassword(){
+    let passwordValue = password.value.trim()
+    
+    if(passwordValue === ''){
+        setError(password,'password cannot be empty')
+    }
+    else if(passwordValue.length<=8){
+        setError(password,'Password must contain 8 characters')
+    }
+    else {
+        setSuccess(password)
+        isValidPassword = true
+    }
+}
+
+function checkCpassword(){
+    let passwordValue = password.value.trim()
+    let cpasswordValue = confirmPassword.value.trim()
+
+    if(cpasswordValue===''){
+        setError(confirmPassword,'Confirm password cannot be empty')
+    }
+    else if(cpasswordValue !==  passwordValue){
+        setError(confirmPassword,'password not matched')
+    }
+    else {
+        setSuccess(confirmPassword)
+        isValidCpassword = true
+    }
+}
+
+function checkCheck(){
+    if(!checkBox.checked ){
+        setError(check,'')
+    }
+    else{
+        setSuccess(check)
+        isValidCheck = true
+    }
+}
+    </script> -->
+</body>
+</html>

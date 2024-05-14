@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read Contact Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('/static/bac-8.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            width: 100%;
+            margin: 10px auto;
+            background-color: #ffffff9a;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 0;
+            color: #333;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        .no-details {
+            text-align: center;
+            color: #888;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <a href="{{url_for('company_dashboard')}}"><button class="p-2" style="margin-bottom: 10px;width: 80px;background-color: #2b06ff;color: #ffffff;border: none;border-radius: 5px;">BACK</button></a>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+        <h1>Contact Us Details</h1>
+
+        {% if g %}
+            {% for i in g %}
+                <p><strong>Project ID:</strong>{{ i[6] }}</p>
+                <p><strong>Name:</strong> {{ i[2] }}</p>
+                <p><strong>Message:</strong> {{ i[3] }}</p>
+                <p><strong>Email:</strong> {{ i[4] }}</p>
+                <p><strong>Phone Number:</strong> {{ i[5] }}</p><hr>
+            {% endfor %}
+        {% else %}
+            <p class="no-details">No contact us details available.</p>
+        {% endif %}
+            </div>
+        </div> 
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
